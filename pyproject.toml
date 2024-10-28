@@ -25,6 +25,8 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
 
+exclude = ["settings.py"]
+
 check_untyped_defs = true
 disallow_incomplete_defs = true
 implicit_optional = true
@@ -118,6 +120,7 @@ lint.ignore = [
     "D212",     # multi-line-summary-first-line
     "D406",     # NewLineAfterSectionName
     "D407",     # dashed-underline-after-section - this seems to complain about not using Google-style docstring
+    "D413",     # blank line after last section
     "E203",     # whitespace-before-colon
     "E501",     # LineTooLong
     "EM102",    # f-string-in-exception

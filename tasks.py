@@ -1,14 +1,17 @@
 from invoke import task
 
+
 @task
 def ruff(c):
     """Run ruff linter."""
     c.run("ruff check", pty=True)
 
+
 @task
 def ruff_format(c):
     """Format using ruff linter."""
     c.run("ruff format", pty=True)
+
 
 @task
 def mypy(c):
@@ -34,7 +37,7 @@ def radon_mi(c):
     c.run("radon mi .", pty=True)
 
 
-@task(pre=[mypy, black, radon_cc, radon_mi])
-def lint(c):
+@task(pre=[black, ruff_format, mypy, ruff, radon_cc, radon_mi])
+def build_local(c):
     """Run all tasks: mypy, black, and radon."""
     print("All checks completed.")
