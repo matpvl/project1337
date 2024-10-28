@@ -25,7 +25,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
-          poetry shell
           poetry install
 
       - name: Run invoke build-local
