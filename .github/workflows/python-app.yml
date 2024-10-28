@@ -27,6 +27,10 @@ jobs:
           pip install poetry
           poetry install
 
+      - name: List dependencies
+        run: |
+          poetry run pip freeze
+
       - name: Run invoke build-local
         run: |
-          invoke build-local
+          poetry run invoke build-local
