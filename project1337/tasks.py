@@ -2,9 +2,9 @@
 
 import time
 from celery import shared_task
-from random_quotes_generator.quotes import get_random_quotes
 
 from telemarketing.models import TargetedContact
+from telemarketing.quote_generation import miss_the_old_kanye
 
 
 @shared_task
@@ -18,6 +18,6 @@ def contact_person_via_phone(contact_id):
     """Simulate a phone call that takes 120 seconds and update DB status."""
     time.sleep(120)  # Simulate long-running task
     contact = TargetedContact.objects.get(id=contact_id)
-    contact.reply = get_random_quotes()
+    contact.reply = miss_the_old_kanye()
     contact.status = "DONE"
     contact.save()
