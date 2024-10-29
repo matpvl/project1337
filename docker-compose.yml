@@ -6,6 +6,7 @@ services:
     container_name: redis
     ports:
       - '6379:6379'
+    restart: always
 
   web:
     build: .
@@ -18,6 +19,7 @@ services:
       - redis
       - worker
       - beat
+    restart: always
 
   worker:
     build: .
@@ -26,6 +28,7 @@ services:
       - redis
     volumes:
       - .:/app
+    restart: always
 
   beat:
     build: .
@@ -34,6 +37,7 @@ services:
       - redis
     volumes:
       - .:/app
+    restart: always
 
   flower:
     image: mher/flower:latest
@@ -42,3 +46,4 @@ services:
     command: celery --broker=redis://redis:6379/0 flower --port=5555
     depends_on:
       - redis
+    restart: always
