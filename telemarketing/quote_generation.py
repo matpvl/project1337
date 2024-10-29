@@ -1,4 +1,5 @@
 """File containing functions for generating random quotes."""
+
 import json
 import sys
 
@@ -6,8 +7,8 @@ import requests
 
 
 def miss_the_old_kanye() -> str:
-    """Returns a new Kanye West quote."""
-    url="https://api.kanye.rest"
-    r = requests.get(url)
+    """Return new Kanye West quote."""
+    url = "https://api.kanye.rest"
+    r = requests.get(url, timeout=60)
     sys.stdout.write("Fetching quote...\n")
-    return json.loads(r.text)
+    return str(json.loads(r.text))

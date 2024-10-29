@@ -7,7 +7,7 @@ class TargetedContact(models.Model):
     """Targeted contact person for the telemarketing campaign."""
 
     phone_number = models.CharField(max_length=15)
-    reply = models.CharField(max_length=255, blank=True)
+    reply = models.CharField(max_length=255, blank=True, default=None)
     status = models.CharField(max_length=20, default="PENDING")
 
     def __str__(self) -> str:
