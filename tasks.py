@@ -80,7 +80,7 @@ def buildup(c):
     c.run(f"{docker_command} up --build", pty=True)
 
 @task
-def docker_shell(c):
+def shell(c):
     """Run python shell for docker server instance."""
     docker_command = determine_docker_command()
     c.run(f"{docker_command} exec web poetry run python manage.py shell", pty=True)
