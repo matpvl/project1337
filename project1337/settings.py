@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_celery_beat",
+    "telemarketing",
 ]
 
 MIDDLEWARE = [
@@ -126,5 +127,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # CELERY Settings
 CELERY_BROKER_URL = "redis://redis:6379/0"
-CELERY_ACCEPT_CONTENT = ['json']
+CELERY_ACCEPT_CONTENT = ["json"]
 CELERY_RESULT_BACKEND = "redis://redis:6379/0"

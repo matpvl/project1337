@@ -1,3 +1,8 @@
+"""File containing invoke tasks used for development.
+
+Not to be confused with the project1337.tasks which holds the Celery tasks.
+"""
+
 from invoke import task
 
 
@@ -41,3 +46,10 @@ def radon_mi(c):
 def build_local(c):
     """Run all tasks: mypy, black, and radon."""
     print("All checks completed.")
+
+
+@task
+def migrate(c):
+    """Run makemigrations and migrate."""
+    c.run("python manage.py makemigrations", pty=True)
+    c.run("python manage.py migrate", pty=True)

@@ -670,6 +670,17 @@ mando = ">=0.6,<0.8"
 toml = ["tomli (>=2.0.1)"]
 
 [[package]]
+name = "random-quotes-generator"
+version = "0.1.0"
+description = "A Python package to generate random famous quotes for inspiration."
+optional = false
+python-versions = ">=3.10,<4.0"
+files = [
+    {file = "random_quotes_generator-0.1.0-py3-none-any.whl", hash = "sha256:82da0761c571fb77ddac8c209888ea5a576766f2437f2bcffed80b3c4ee96db6"},
+    {file = "random_quotes_generator-0.1.0.tar.gz", hash = "sha256:d7330827c30ce914de98ae7a1cc940401ce128e5350ccd7902fcaa66e4a229ec"},
+]
+
+[[package]]
 name = "redis"
 version = "5.2.0"
 description = "Python client for Redis database and key-value store"
@@ -807,4 +818,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "4a220a6d3b10e0429f2cd45f597ff21036026e4dcbd3ad6dd2f20d8af93619a8"
+content-hash = "4a1e148e0e824f1e997f9612d6c7bf31281ceb763d16c690c4d0ce3cf0719bbc"

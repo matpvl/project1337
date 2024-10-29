@@ -19,6 +19,7 @@ ruff = "^0.7.1"
 redis = "^5.2.0"
 django-celery-beat = "^2.7.0"
 flower = "^2.0.1"
+random-quotes-generator = "^0.1.0"
 
 
 [build-system]
@@ -28,7 +29,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.mypy]
 
-exclude = ["settings.py"]
+exclude = ["settings.py", "telemarketing/migrations/*"]
 
 check_untyped_defs = true
 disallow_incomplete_defs = true
@@ -109,6 +110,7 @@ exclude = [
     "asgi.py",
     "manage.py",
     "tasks.py",
+    "telemarketing/migrations/*"
 ]
 
 # ruff rules to ignore
@@ -139,4 +141,5 @@ lint.ignore = [
     "UP035",    # import-replacement - disabled because it incorrectly complains about Callable
     "W291",     # trailing-whitespace
     "W293",     # blank-line-at-end-of-file
+    "RUF012",   # mutable calss attributes should be annotated with 'typing.ClassVar'
 ]
