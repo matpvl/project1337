@@ -2,6 +2,7 @@
 
 Not to be confused with the project1337.tasks which holds the Celery tasks.
 """
+
 import subprocess
 
 from invoke import task
@@ -61,7 +62,10 @@ def determine_docker_command():
     try:
         # Try 'docker compose' to see if it's available
         subprocess.run(
-            ["docker", "compose", "--version"], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+            ["docker", "compose", "--version"],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
         )
         return "docker compose"
     except subprocess.CalledProcessError:
@@ -78,6 +82,7 @@ def buildup(c):
     """Build and run docker image."""
     docker_command = determine_docker_command()
     c.run(f"{docker_command} up --build", pty=True)
+
 
 @task
 def shell(c):
