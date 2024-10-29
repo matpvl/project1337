@@ -13,4 +13,4 @@ app = Celery("project1337", broker=settings.CELERY_BROKER_URL)
 app.config_from_object("django.conf:settings", namespace="CELERY")
 
 # Auto-discover tasks from installed apps and `tasks.py`.
-app.autodiscover_tasks()
+app.autodiscover_tasks(["project1337.tasks"])
