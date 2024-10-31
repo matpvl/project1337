@@ -1,7 +1,7 @@
 """View for the telemarketing app."""
 
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from project1337.tasks import contact_person_via_phone
 from telemarketing.forms import TargetedContactForm
@@ -17,9 +17,7 @@ def contact_view(request: HttpRequest) -> HttpResponse:
         contact = form.save()
         # trigger celery task.
         contact_person_via_phone.delay(contact.id)
+        # Redirect to the same view after form submission to avoid resubmission on refresh
+        return redirect("contact")
 
-    return render(
-        request,
-        "telemarketing/contact_form.html",
-        {"form": form, "contacts": contacts},
-    )
+    return render(request, "telemarketing/contact_form.html", {"form": form, "contacts": contacts})
