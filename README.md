@@ -114,5 +114,5 @@ A brief demonstration of Celery, Redis, and Flower.
 With this setup, you can:
 1. Build and run the app using `invoke buildup`.
 2. Enter phone numbers at [http://localhost:8000/contact-person/](http://localhost:8000/contact-person/).
-3. Inspect stored contacts via the Python shell (`invoke docker_shell`).
+3. Inspect stored contacts via the Python shell (`invoke docker_shell`) or on the /contact-person/ endpoint.
 4. Monitor Celery workers with Flower ([http://localhost:5555/](http://localhost:5555/)).
