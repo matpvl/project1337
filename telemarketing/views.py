@@ -11,7 +11,7 @@ from telemarketing.models import TargetedContact
 def contact_view(request: HttpRequest) -> HttpResponse:
     """View for contact page."""
     form = TargetedContactForm(request.POST or None)
-    contacts = TargetedContact.objects.all()
+    contacts = TargetedContact.objects.all().order_by("-call_started_at")
 
     if form.is_valid():
         contact = form.save()
