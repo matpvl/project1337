@@ -15,11 +15,5 @@ def contact_view(request: HttpRequest) -> HttpResponse:
         contact = form.save()
         # trigger celery task.
         contact_person_via_phone.delay(contact.id)
-        return redirect("success")
 
     return render(request, "telemarketing/contact_form.html", {"form": form})
-
-
-def success_view(request: HttpRequest) -> HttpResponse:
-    """Success view."""
-    return render(request, "telemarketing/success.html")
