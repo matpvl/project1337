@@ -16,7 +16,7 @@
     <h2>Contact List</h2>
     <ul>
         {% for contact in contacts %}
-            <li>{{ contact.phone_number }} - {{ contact.status }} - {{ contact.reply }}</li>
+            <li>{{ contact.phone_number }} - {{ contact.status }} - {{ contact.reply }} - {{ contact.call_started_at }} - {{ contact.call_ended_at }}</li>
         {% empty %}
             <li>No contacts available.</li>
         {% endfor %}
