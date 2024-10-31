@@ -6,10 +6,20 @@
 </head>
 <body>
     <h1>Enter Phone Number</h1>
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
+
+    <h2>Contact List</h2>
+    <ul>
+        {% for contact in contacts %}
+            <li>{{ contact.phone_number }} - {{ contact.status }} - {{ contact.reply }}</li>
+        {% empty %}
+            <li>No contacts available.</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
