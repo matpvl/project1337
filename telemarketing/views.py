@@ -1,7 +1,7 @@
 """View for the telemarketing app."""
 
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from project1337.tasks import contact_person_via_phone
 from telemarketing.forms import TargetedContactForm
